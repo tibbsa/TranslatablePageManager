@@ -1,7 +1,7 @@
 {
-    "name": "backpack/pagemanager",
+    "name": "backpack/translatablepagemanager",
     "type": "library",
-    "description": "Create admin panels for presentation websites on Laravel, using page templates and Backpack\\CRUD.",
+    "description": "Create admin panels for presentation websites on Laravel, using page templates and Backpack\\CRUD - translation-aware extension to the Backpack package.",
     "keywords": [
         "backpack",
         "crud",
@@ -23,6 +23,11 @@
             "email": "hello@tabacitu.ro",
             "homepage": "http://tabacitu.ro",
             "role": "Architect & Developer"
+        },
+	{
+            "name": "Anthony Tibbs",
+            "email": "anthony@tibbs.ca",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "dev",
@@ -38,12 +43,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Backpack\\PageManager\\": "src"
+            "Backpack\\TranslatablePageManager\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Backpack\\PageManager\\": "tests"
+            "Backpack\\TranslatablePageManager\\": "tests"
         }
     },
     "scripts": {
@@ -55,7 +60,7 @@
         },
         "laravel": {
             "providers": [
-                "Backpack\\PageManager\\PageManagerServiceProvider"
+                "Backpack\\TranslatablePageManager\\TranslatablePageManagerServiceProvider"
             ]
         }
     }

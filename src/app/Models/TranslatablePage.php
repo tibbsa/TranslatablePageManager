@@ -1,17 +1,19 @@
 <?php
 
-namespace Backpack\PageManager\app\Models;
+namespace Backpack\TranslatablePageManager\app\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 
-class Page extends Model
+class TranslatablePage extends Model
 {
     use CrudTrait;
     use Sluggable;
     use SluggableScopeHelpers;
+    use HasTranslations;
 
     /*
     |--------------------------------------------------------------------------
@@ -23,12 +25,15 @@ class Page extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['template', 'name', 'title', 'slug', 'content', 'extras'];
+    protected $fillable = ['template', 'name', 'title', 'slug', 'content', 'extras', 'extras_translatable'];
+    protected $translatable = ['title', 'content', 'extras_translatable'];
+
     // protected $hidden = [];
     // protected $dates = [];
-    protected $fakeColumns = ['extras'];
+    protected $fakeColumns = ['extras', 'extras_translatable'];
     protected $casts = [
         'extras' => 'array',
+        'extras_translatable' => 'array'
     ];
 
     /**
