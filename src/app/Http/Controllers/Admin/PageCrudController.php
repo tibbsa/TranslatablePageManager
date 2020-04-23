@@ -1,11 +1,11 @@
 <?php
 
-namespace Backpack\PageManager\app\Http\Controllers\Admin;
+namespace Backpack\TranslatablePageManager\app\Http\Controllers\Admin;
 
 use App\PageTemplates;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
-use Backpack\PageManager\app\Http\Requests\PageRequest;
+use Backpack\TranslatablePageManager\app\Http\Requests\PageRequest;
 
 class PageCrudController extends CrudController
 {
@@ -18,7 +18,7 @@ class PageCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel(config('backpack.pagemanager.page_model_class', 'Backpack\PageManager\app\Models\Page'));
+        $this->crud->setModel(config('backpack.translatablepagemanager.page_model_class', 'Backpack\TranslatablePageManager\app\Models\TranslatablePage'));
         $this->crud->setRoute(config('backpack.base.route_prefix').'/page');
         $this->crud->setEntityNameStrings(trans('backpack::pagemanager.page'), trans('backpack::pagemanager.pages'));
     }
@@ -84,7 +84,7 @@ class PageCrudController extends CrudController
             'name' => 'template',
             'label' => trans('backpack::pagemanager.template'),
             'type' => 'select_page_template',
-            'view_namespace'  => 'pagemanager::fields',
+            'view_namespace'  => 'translatablepagemanager::fields',
             'options' => $this->getTemplatesArray(),
             'value' => $template,
             'allows_null' => false,
