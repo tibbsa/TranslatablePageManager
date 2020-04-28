@@ -33,7 +33,6 @@ class TranslatablePage extends Model
     protected $fakeColumns = ['extras', 'extras_translatable'];
     protected $casts = [
         'extras' => 'array',
-        'extras_translatable' => 'array'
     ];
 
     /**
